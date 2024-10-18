@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Listado de Estudiantes";
+}
+@model List<ExampleWeb.Models.Entitys.Student>
+<div class="row">
+    <div class="col-3">
+        <a class="btn btn-outline-primary col-12" asp-controller="Students" asp-action="Add">Nuevo&nbsp;<i class="fa-solid fa-square-plus"></i></a>
+    </div>
+
+</div>
+<div class="row mt-2">
+    <div class="table-responsive">
+        <table class="table table-bordered border-secondary">
+            <thead class="table-dark">
+                <tr>
+                    <th width="120px">Actions</th>
+                    <th>Nombre Completo</th>
+                    <th>Email</th>
+                    <th>Telefono</th>
+                    <th>Activo</th>
+                </tr>
+            </thead>
+            <tbody class="table-striped">
+                @foreach(var element in Model)
+                {
+                    <tr>
+                        <td>
+                            <a class="btn btn-outline-success" asp-controller="Students" asp-action="Edit" asp-route-id="@element.Id" title="Editar Estudiante"><i class="fa-solid fa-eraser"></i></a>
+                            <a class="btn btn-outline-danger" asp-controller="Students" asp-action="Delete" asp-route-id="@element.Id" title="Eliminar Estudiante"><i class="fa-solid fa-trash"></i></a>
+                            @* <button type="button" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></button> *@
+                        </td>
+                        <td>@element.Name</td>
+                        <td>@element.Email</td>
+                        <td>@element.Phone</td>
+                        <td align="center"><i class="fa-solid @(element.IsActive ? "fa-square-check text-success" : "fa-square-xmark text-danger")"></i></td>
+                    </tr>
+                }
+                
+                @* <tr>
+                    <td>
+                        <button type="button" class="btn btn-outline-success"><i class="fa-solid fa-eraser"></i></button>
+                        <button type="button" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                    <td>2</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>fat</td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-outline-success"><i class="fa-solid fa-eraser"></i></button>
+                        <button type="button" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                    <td>3</td>
+                    <td>Larry the Bird</td>
+                    <td>twitter</td>
+                    <td>xxxx</td>
+                </tr> *@
+            </tbody>
+        </table>
+    </div>
+</div>

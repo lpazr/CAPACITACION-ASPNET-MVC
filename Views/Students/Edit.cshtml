@@ -1,0 +1,37 @@
+﻿@tagHelperPrefix th:
+@model ExampleWeb.Models.Entitys.Student
+@{
+    ViewData["Title"] = "Modificar Estudiante";
+}
+
+@if (Model == null)
+{
+    <p class="text-center">No se encontró estudiante con el Id buscado.</p>
+}
+@if (Model != null)
+{
+    <form style="border: solid #dee2e6" method="post">
+        @await Html.PartialAsync("_ValidationSummary")
+        <h1 class="text-center">Modificar Estudiante</h1>
+
+        <div class="m-2">
+            <th:label asp-for="Name" class="form-label"></th:label>
+                <th:input asp-for="Name" class="form-control" type="text"></th:input>
+        </div>
+        <div class="m-2">
+            <th:label asp-for="Email" class="form-label"></th:label>
+                <th:input asp-for="Email" class="form-control" type="email"></th:input>
+        </div>
+        <div class="m-2">
+            <th:label asp-for="Phone" class="form-label"></th:label>
+                <th:input asp-for="Phone" class="form-control" type="tel"></th:input>
+        </div>
+        <div class="m-2">
+                <th:input asp-for="IsActive" class="form-check-input" type="checkbox"></th:input>
+            <th:label asp-for="IsActive" class="form-check-label"></th:label>
+        </div>
+        <div class="m-2">
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i>&nbsp;Guardar</button>
+        </div>
+    </form>
+}

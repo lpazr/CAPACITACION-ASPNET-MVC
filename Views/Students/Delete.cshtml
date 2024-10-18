@@ -1,0 +1,36 @@
+﻿@tagHelperPrefix th:
+@model ExampleWeb.Models.Entitys.Student
+@{
+    ViewData["Title"] = "Eliminar Estudiante";
+}
+
+@if (Model == null)
+{
+    <p class="text-center">No se encontró estudiante con el Id buscado.</p>
+}
+@if (Model != null)
+{
+    <form style="border: solid #dee2e6" method="post">
+        <h1 class="text-center">Eliminar Estudiante</h1>
+
+        <div class="m-2">
+            <th:label asp-for="Name" class="form-label"></th:label>
+            <th:input asp-for="Name" class="form-control" type="text" disabled></th:input>
+        </div>
+        <div class="m-2">
+            <th:label asp-for="Email" class="form-label"></th:label>
+            <th:input asp-for="Email" class="form-control" type="email" disabled></th:input>
+        </div>
+        <div class="m-2">
+            <th:label asp-for="Phone" class="form-label"></th:label>
+            <th:input asp-for="Phone" class="form-control" type="tel" disabled></th:input>
+        </div>
+        <div class="m-2">
+            <th:input asp-for="IsActive" class="form-check-input" type="checkbox" disabled></th:input>
+            <th:label asp-for="IsActive" class="form-check-label"></th:label>
+        </div>
+        <div class="m-2">
+            <button type="submit" class="btn btn-danger"><i class="fa-solid fa-circle-xmark"></i>&nbsp;Eliminar</button>
+        </div>
+    </form>
+}
